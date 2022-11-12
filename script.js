@@ -29,12 +29,12 @@ function startGame()
 function markSymbol() {
   if (currentTurn === "X" && this.innerText === "") {
     this.innerHTML = "X";
-    checkWinner()
+    
     checkResults()
     currentTurn = "O";
   } else if (currentTurn === "O" && this.innerText === "") {
     this.innerHTML = "O";
-    checkWinner()
+   
     checkResults()
     currentTurn = "X";
     
@@ -50,8 +50,10 @@ function checkWinner() {
     ) {
       let finishGameDisplay = document.getElementsByClassName("winningMessage");
       finishGameDisplay[0].innerHTML = "Game Over!<br> " + currentTurn + " is the Winner ";
-      let winnerAnnouncement = document.getElementsByClassName("show");
-      winnerAnnouncement[0].style.display = "flex";
+     
+      let finishGame = document.getElementById("finishGame");
+      finishGame.classList.remove("endgame")
+      finishGame.classList.add("show")
       document.getElementById("resetButton").addEventListener("click",resetGame);
 
       return true
