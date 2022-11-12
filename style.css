@@ -3,8 +3,9 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(179, 218, 40);
     font-size: 30px;
+    font-family: 'Cinzel', serif;
     margin-top: 100px;
     background: linear-gradient(59.74deg, #020718 44.35%, #100830 100%);
 }
@@ -32,6 +33,7 @@ body{
     align-content: center;
     justify-content: center;
     font-size: 90px;
+    color:beige;
     
 }
 
@@ -40,4 +42,33 @@ body{
 background: rgb(173, 117, 173);
 cursor: pointer;
 
+}
+
+.show
+{
+   display: none;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 70px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 90%;
+}
+
+.show button{
+
+    font-size: 30px;
+    font-family: 'Cinzel', serif;
+    margin-top: 70px;
+}
+
+.show button:hover{
+
+    cursor: pointer;
+    background-color: rgb(55, 166, 231);    
 }
