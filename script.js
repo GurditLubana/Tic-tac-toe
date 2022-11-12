@@ -29,16 +29,19 @@ function startGame()
 function markSymbol() {
   if (currentTurn === "X" && this.innerText === "") {
     this.innerHTML = "X";
-    checkWinner(currentTurn);
+    checkWinner()
+    checkResults()
     currentTurn = "O";
   } else if (currentTurn === "O" && this.innerText === "") {
     this.innerHTML = "O";
-    checkWinner(currentTurn);
+    checkWinner()
+    checkResults()
     currentTurn = "X";
+    
   }
 }
 
-function checkWinner(currentTurn) {
+function checkWinner() {
   for (let i = 0; i < winningCombinations.length; i++) {
     if (
       box[winningCombinations[i][0]].innerHTML === currentTurn &&
@@ -51,8 +54,10 @@ function checkWinner(currentTurn) {
       winnerAnnouncement[0].style.display = "flex";
       document.getElementById("resetButton").addEventListener("click",resetGame);
 
+      return true
     }
   }
+  return false;
 }
 
 function resetGame()
@@ -70,4 +75,34 @@ function resetGrid()
         box[i].innerHTML = "";
     }
     currentTurn = "X";
+}
+
+function checkResults()
+{
+    let ifWinner = checkWinner();
+    let gameFinished = true;
+    let finishGameDisplay = document.getElementsByClassName("winningMessage");
+    if(!ifWinner)
+    {
+        for(let i = 0; i<9 && (gameFinished); i++)
+        {
+            if(box[i].innerHTML === "")
+            {
+                gameFinished = false;
+            }
+        }
+
+        if(gameFinished)
+        {
+           
+            finishGameDisplay[0].innerHTML = "Game Over!<br> It was a Draw. ";
+            let winnerAnnouncement = document.getElementsByClassName("show");
+             winnerAnnouncement[0].style.display = "flex";
+             document.getElementById("resetButton").addEventListener("click",resetGame);
+        }
+
+
+    }
+
+      
 }
