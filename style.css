@@ -55,6 +55,7 @@ h1 {
   align-items: center;
   justify-content: center;
   border: 10px solid rgb(212, 212, 125);
+  transition-delay: all 4s linear;
 }
 
 #resetButton {
@@ -85,4 +86,17 @@ h1 {
   width: 80px;
   height: 20px;
   padding: 5px;
+}
+
+.line{
+
+    border: 1px solid white;
+    height: 1px;
+    width: 450px;
+    position: absolute;
+    rotate: -45deg;
+    top: 400px;
+    background-color: white;
+    transition-duration: 2s;
+
 }
