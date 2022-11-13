@@ -1,87 +1,88 @@
-body{
-   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: rgb(212, 212, 125);
-    font-size: 30px;
-    font-family: 'Cinzel', serif;
-    margin-top: 100px;
-    background: linear-gradient(59.74deg, #020718 44.35%, #100830 100%);
-   
-    
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(212, 212, 125);
+  font-family: "Cinzel", serif;
+  margin-top: 100px;
+  background: linear-gradient(59.74deg, #020718 44.35%, #100830 100%);
+}
+h1 {
+  position: absolute;
+  top: 0%;
 }
 
-.boardGrid 
-{
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 10px;
-    list-style: none;
-    margin-top: 10px;
-    
-    
-    
+.boardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  list-style: none;
+  margin-top: 10px;
 }
 
-
-
-.boardGrid  .boxes
-{
-   
-    border: 1px solid black;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(167.91% 1263% at 3.94% 100%, #0C1B52 0%, #7B0770 100%);
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    font-size: 80px;
-    color:beige;
-    box-shadow: #e9aae3;
-    
+.boardGrid .boxes {
+  border: 1px solid rgb(254, 249, 249);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    167.91% 1263% at 3.94% 100%,
+    #0c1b52 0%,
+    #7b0770 100%
+  );
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 80px;
+  color: beige;
+  box-shadow: white;
 }
 
-.boxes:hover{
-
-background: rgb(173, 117, 173);
-cursor: pointer;
-color: #100830;
-
+.boxes:hover {
+  background: rgb(173, 117, 173);
+  cursor: pointer;
+  color: #100830;
 }
 
-
-
-
-.endgame
-{
-    
-    display: none;
-    background-color: rgb(3, 40, 43);
-    position: fixed;
-    width : 500px;
-    height: 400px;
-    font-size: 40px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 10px solid rgb(212, 212, 125)
-    
-    
+.endgame {
+  display: none;
+  background-color: rgb(3, 40, 43);
+  position: fixed;
+  width: 500px;
+  height: 400px;
+  font-size: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid rgb(212, 212, 125);
 }
 
-
-#resetButton{
-
-    font-size: 30px;
-    font-family: 'Cinzel', serif;
-    margin-top: 70px;
-    transition-delay: 2s;
+#resetButton {
+  font-size: 30px;
+  font-family: "Cinzel", serif;
+  margin-top: 70px;
+  transition-delay: 2s;
 }
 
-#resetButton:hover{
+#resetButton:hover {
+  cursor: pointer;
+  background-color: #1434a7;
+}
 
-    cursor: pointer;
-    background-color: #1434a7;    
+.scores {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+}
+
+.scoreX,
+.scoreO {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: beige;
+  box-shadow: white;
+  border: 1px solid white;
+  width: 80px;
+  height: 20px;
+  padding: 5px;
 }

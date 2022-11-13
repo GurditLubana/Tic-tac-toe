@@ -9,6 +9,9 @@ let winningCombinations = [
   [2, 5, 8],
 ];
 
+let xPoints = 0;
+let oPoints = 0;
+let winner;
 let currentTurn;
 let box = document.getElementsByClassName("boxes");
 
@@ -20,6 +23,10 @@ function startGame()
 {
     
     resetGrid();
+
+    (document.getElementsByClassName("scoreX"))[1].innerHTML = xPoints;
+    (document.getElementsByClassName("scoreO"))[1].innerHTML = oPoints;
+    
 
     for (let i = 0; i < 9; i++) {
         box[i].addEventListener("click", markSymbol);
@@ -46,11 +53,14 @@ function checkWinner() {
       box[winningCombinations[i][1]].innerHTML === currentTurn &&
       box[winningCombinations[i][2]].innerHTML === currentTurn
     ) {
+      
+      winner = currentTurn;
       let finishGameDisplay = document.getElementsByClassName("winningMessage");
       finishGameDisplay[0].innerHTML = "Game Over!<br> " + currentTurn + " is the Winner ";
       let winnerAnnouncement = document.getElementsByClassName("endgame");
       winnerAnnouncement[0].style.display = "flex";
       document.getElementById("resetButton").addEventListener("click",resetGame);
+      updateScores();
 
       return true
     }
@@ -71,6 +81,8 @@ function resetGrid()
     for(let i =0;i<9; i++)
     {
         box[i].innerHTML = "";
+       
+        
     }
     let turnMsg = document.getElementsByTagName("h3");
     turnMsg[0].innerHTML = "Start the game with X's turn first"
@@ -121,5 +133,24 @@ function switchTurns()
     currentTurn = "X"
     let turnMsg = document.getElementsByTagName("h3");
     turnMsg[0].innerHTML = "It is X's turn now"
+  }
+}
+
+function showWinningCombination(i)
+{
+  box[winningCombinations[i][0]].style.background = "red"
+  box[winningCombinations[i][1]].style.background = "red"
+  box[winningCombinations[i][2]].style.background = "red"
+}
+
+function updateScores()
+{
+  if(winner === "X")
+  {
+    xPoints++;
+  }
+  else if(winner === "O")
+  {
+    oPoints++;
   }
 }
