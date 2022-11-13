@@ -30,15 +30,13 @@ function markSymbol() {
   if (currentTurn === "X" && this.innerText === "") {
     this.innerHTML = "X";
     
-    checkResults()
-    currentTurn = "O";
   } else if (currentTurn === "O" && this.innerText === "") {
-    this.innerHTML = "O";
-   
-    checkResults()
-    currentTurn = "X";
+    this.innerHTML = "O"
     
   }
+
+  checkResults()
+  switchTurns()
 }
 
 function checkWinner() {
@@ -50,7 +48,7 @@ function checkWinner() {
     ) {
       let finishGameDisplay = document.getElementsByClassName("winningMessage");
       finishGameDisplay[0].innerHTML = "Game Over!<br> " + currentTurn + " is the Winner ";
-      let winnerAnnouncement = document.getElementsByClassName("show");
+      let winnerAnnouncement = document.getElementsByClassName("endgame");
       winnerAnnouncement[0].style.display = "flex";
       document.getElementById("resetButton").addEventListener("click",resetGame);
 
@@ -63,7 +61,7 @@ function checkWinner() {
 function resetGame()
 {
     startGame();
-    let winnerAnnouncement = document.getElementsByClassName("show");
+    let winnerAnnouncement = document.getElementsByClassName("endgame");
     winnerAnnouncement[0].style.display = "none";
 
 }
@@ -74,6 +72,8 @@ function resetGrid()
     {
         box[i].innerHTML = "";
     }
+    let turnMsg = document.getElementsByTagName("h3");
+    turnMsg[0].innerHTML = "Start the game with X's turn first"
     currentTurn = "X";
 }
 
@@ -96,7 +96,7 @@ function checkResults()
         {
            
             finishGameDisplay[0].innerHTML = "Game Over!<br> It was a Draw. ";
-            let winnerAnnouncement = document.getElementsByClassName("show");
+            let winnerAnnouncement = document.getElementsByClassName("endgame");
              winnerAnnouncement[0].style.display = "flex";
              document.getElementById("resetButton").addEventListener("click",resetGame);
         }
@@ -104,5 +104,22 @@ function checkResults()
 
     }
 
+
       
+}
+
+function switchTurns()
+{
+
+  if(currentTurn === "X")
+  {
+    currentTurn = "O"
+    let turnMsg = document.getElementsByTagName("h3");
+    turnMsg[0].innerHTML = "It is O's turn now"
+  }
+  else{
+    currentTurn = "X"
+    let turnMsg = document.getElementsByTagName("h3");
+    turnMsg[0].innerHTML = "It is X's turn now"
+  }
 }
