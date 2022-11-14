@@ -55,19 +55,11 @@ function checkWinner() {
     ) {
       
       winner = currentTurn;
-      let winningLine = document.getElementById("winningStrokeLine");
-      winningLine.classList.add("line");
-      let winnerAnnouncement = document.getElementById("finishGame");
-      winnerAnnouncement.classList.add("endgame");
-      
-      let  winningMessage= "Game Over!<br> " + winner + " is the Winner ";
-      let e = document.getElementsByClassName("endgame")
-      e[0].innerHTML = winningMessage;
-      
-     
-
-
-      // document.getElementById("resetButton").addEventListener("click",resetGame);
+      let finishGameDisplay = document.getElementsByClassName("winningMessage");
+      finishGameDisplay[0].innerHTML = "Game Over!<br> " + currentTurn + " is the Winner ";
+      let winnerAnnouncement = document.getElementsByClassName("endgame");
+      winnerAnnouncement[0].style.display = "flex";
+      document.getElementById("resetButton").addEventListener("click",resetGame);
       updateScores();
       // let finishGameDisplay = document.getElementById("winningMsg");
       // finishGameDisplay[0].innerHTML = "Game Over!<br> " + winner + " is the Winner ";
