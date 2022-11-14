@@ -22,8 +22,8 @@ startGame();
 function startGame()
 {
     
-    resetGrid();
-
+    
+  resetGrid();
     (document.getElementsByClassName("scoreX"))[1].innerHTML = xPoints;
     (document.getElementsByClassName("scoreO"))[1].innerHTML = oPoints;
     
@@ -61,10 +61,7 @@ function checkWinner() {
       document.getElementById("finishGame").classList.add("endgame");
       document.getElementById("resetButton").addEventListener("click",resetGame);
       updateScores();
-      // let finishGameDisplay = document.getElementById("winningMsg");
-      // finishGameDisplay[0].innerHTML = "Game Over!<br> " + winner + " is the Winner ";
       
-
       return true
     }
   }
@@ -73,10 +70,14 @@ function checkWinner() {
 
 function resetGame()
 {
-    startGame();
-    let winnerAnnouncement = document.getElementsByClassName("endgame");
-    winnerAnnouncement[0].style.display = "none";
-
+  let turnMsg = document.getElementsByTagName("h3");
+  turnMsg[0].innerHTML = "Start the game with X's turn first"
+  document.getElementById("winningStrokeLine").classList.remove("line");
+  document.getElementById("finishGame").classList.remove("endgame");
+  let finishGameDisplay = document.getElementsByClassName("winningMessage");
+  finishGameDisplay[0].innerHTML = "";
+  startGame();
+    
 }
 
 function resetGrid()
@@ -87,8 +88,6 @@ function resetGrid()
        
         
     }
-    let turnMsg = document.getElementsByTagName("h3");
-    turnMsg[0].innerHTML = "Start the game with X's turn first"
     currentTurn = "X";
 }
 
@@ -110,10 +109,11 @@ function checkResults()
         if(gameFinished)
         {
            
-            // finishGameDisplay[0].innerHTML = "Game Over!<br> It was a Draw. ";
-            // let winnerAnnouncement = document.getElementsByClassName("endgame");
-            //  winnerAnnouncement[0].style.display = "flex";
-             document.getElementById("resetButton").addEventListener("click",resetGame);
+          document.getElementById("winningStrokeLine").classList.add("line");
+          let finishGameDisplay = document.getElementsByClassName("winningMessage");
+          finishGameDisplay[0].innerHTML = "Game Over!<br> It was a Draw ";
+          document.getElementById("finishGame").classList.add("endgame");
+          document.getElementById("resetButton").addEventListener("click",resetGame);
         }
 
 
