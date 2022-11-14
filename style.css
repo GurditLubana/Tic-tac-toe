@@ -45,7 +45,7 @@ h1 {
 }
 
 .endgame {
-  display: none;
+  display: flex;
   background-color: rgb(3, 40, 43);
   position: fixed;
   width: 500px;
@@ -55,14 +55,14 @@ h1 {
   align-items: center;
   justify-content: center;
   border: 10px solid rgb(212, 212, 125);
-  transition-delay: all 4s linear;
+  transition-delay: 4s;
 }
 
 #resetButton {
   font-size: 30px;
   font-family: "Cinzel", serif;
   margin-top: 70px;
-  transition-delay: 2s;
+  transition-delay: 4s;
 }
 
 #resetButton:hover {
@@ -100,3 +100,4 @@ h1 {
     transition-duration: 2s;
 
 }
+
