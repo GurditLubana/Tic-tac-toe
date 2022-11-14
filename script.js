@@ -57,8 +57,7 @@ function checkWinner() {
       winner = currentTurn;
       let finishGameDisplay = document.getElementsByClassName("winningMessage");
       finishGameDisplay[0].innerHTML = "Game Over!<br> " + currentTurn + " is the Winner ";
-      let winnerAnnouncement = document.getElementsByClassName("endgame");
-      winnerAnnouncement[0].style.display = "flex";
+      document.getElementById("finishGame").classList.add("endgame");
       document.getElementById("resetButton").addEventListener("click",resetGame);
       updateScores();
       // let finishGameDisplay = document.getElementById("winningMsg");

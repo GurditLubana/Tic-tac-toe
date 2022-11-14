@@ -55,14 +55,16 @@ h1 {
   align-items: center;
   justify-content: center;
   border: 10px solid rgb(212, 212, 125);
-  transition-delay: 4s;
+  animation-name: example;
+  animation-duration: 4s;
+  
 }
 
 #resetButton {
   font-size: 30px;
   font-family: "Cinzel", serif;
   margin-top: 70px;
-  transition-delay: 4s;
+  
 }
 
 #resetButton:hover {
@@ -101,3 +103,10 @@ h1 {
 
 }
 
+@keyframes example {
+  
+  0%   {left:center; bottom:0px;}
+  50%  {left:center; top:50px;}
+  100% {left:center; top:100px;}
+
+}
