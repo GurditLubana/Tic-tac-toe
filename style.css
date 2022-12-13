@@ -39,11 +39,10 @@ h1 {
 }
 
 .boxes:hover {
-  background: rgb(173, 117, 173);
   cursor: pointer;
-  color: #100830;
+  color: black;
 }
-.endgame {
+.endgame  {
   display: flex;
   background-color: rgb(3, 40, 43);
   position: fixed;
@@ -52,10 +51,13 @@ h1 {
   font-size: 40px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   border: 10px solid rgb(212, 212, 125);
   transition-duration: 1s;
   transition-delay: 1s;
+  animation-name: boxAnimation;
+  animation-duration: 5s;
+  
 }
 
 #resetButton {
@@ -88,13 +90,10 @@ h1 {
   padding: 5px;
 }
 
-.line {
-  border: 1px solid white;
-  height: 1px;
-  width: 450px;
-  position: absolute;
-  rotate: -45deg;
-  top: 400px;
-  background-color: white;
-  transition-duration: 0.5s;
+
+@keyframes boxAnimation
+{
+  0% {left: 0%}
+  50% {left: 25%}
+ 
 }
